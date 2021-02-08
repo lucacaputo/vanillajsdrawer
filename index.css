@@ -35,11 +35,15 @@ html, body {
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+    flex: 1;
 }
 .inner_wrapper {
     height: 0;
     overflow: hidden;
     position: relative;
+    max-height: 450px;
+    display: flex;
+    width: 100%;
 }
 .pic {
     background-repeat: no-repeat;

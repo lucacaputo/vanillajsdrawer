@@ -2,12 +2,12 @@ const { spring, tween, easing, styler, value } = popmotion;
 
 //state
 let isArrowMorphing = false;
-let maxContHeight = 0;
+let maxContHeight = 350;
 let isDrawerOpening = false;
 let isDrawerOpen = false;
 //config
 const conf = {
-    imagesPerRow: 10,
+    imagesPerRow: 15,
     xMargin: 5,
     yMargin: 5,
 }
@@ -44,13 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
         isArrowMorphing = true;
         spring({
             from: arrowCurve.get(),
-            to: [40, 10]
+            to: [40, 5]
         })
         .while(_ => isArrowMorphing)
         .start(arrowCurve);
         spring({
             from: arrowTranslation.get(),
-            to: -14
+            to: -18
         })
         .while(_ => isArrowMorphing)
         .start(arrowTranslation);
@@ -81,15 +81,13 @@ document.addEventListener("DOMContentLoaded", () => {
         div.style.marginRight = `${conf.xMargin}px`;
         div.style.backgroundImage = `url("${div.dataset.img}")`;
     });
-    let mult = Math.ceil(allImages.length / conf.imagesPerRow);
-    let totH = mult * imgW + (mult * (conf.yMargin*2));
     arrowCont.addEventListener('click', () => {
         if (!isDrawerOpen) {
             isDrawerOpening = true;
             isDrawerOpen = true;
             spring({
                 from: parseInt(sPicCont.get('height')),
-                to: totH
+                to: maxContHeight
             })
             .while(_ => isDrawerOpening)
             .start(v => sPicCont.set('height', `${v}px`));
