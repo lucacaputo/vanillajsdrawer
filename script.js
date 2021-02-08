@@ -235,7 +235,7 @@ function enableOverflow() {
     document.querySelector(".inner_wrapper").style.overflow = "visible";
 }
 function disableOverflow() {
-    document.querySelector(".ov").style.overflowY = "hidden";
+    document.querySelector(".ov").style.overflowY = "scroll";
     document.querySelector(".inner_wrapper").style.overflow = "hidden";
 }
 function isInside(x, y, mouseX, mouseY, w, h) {
